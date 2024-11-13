@@ -16,8 +16,10 @@
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "standard-version",
-    "postrelease": "git push --follow-tags origin main && npm publish"
+    "release": "semantic-release"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
     "antd": "^4.0.0 || ^5.0.0",
@@ -48,6 +50,9 @@
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.1",
+    "@semantic-release/npm": "^12.0.1",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
     "@storybook/addon-onboarding": "^8.4.2",
@@ -83,6 +88,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
+    "semantic-release": "^24.2.0",
     "standard-version": "^9.5.0",
     "storybook": "^8.4.2",
     "ts-jest": "^29.2.5",
