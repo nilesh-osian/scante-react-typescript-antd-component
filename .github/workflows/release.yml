@@ -15,7 +15,6 @@ jobs:
       packages: write
       issues: write
       pull-requests: write
-      metadata: write
 
     steps:
       - name: Checkout code
