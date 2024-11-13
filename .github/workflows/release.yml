@@ -1,9 +1,11 @@
+# .github/workflows/release.yml
+
 name: Release
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust if your default branch is different
 
 jobs:
   release:
@@ -11,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
-      packages: write
+      contents: write  # Needed for creating releases and pushing commits/tags
       issues: write
+      packages: write
       pull-requests: write
 
     steps:
@@ -23,17 +25,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.18.0' # or '18.x' if you prefer
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '20.18.0'  # Ensure Node.js version >=20.8.1
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Configure npm for authentication
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build package
-        run: npm run build
-
       - name: Run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run release
