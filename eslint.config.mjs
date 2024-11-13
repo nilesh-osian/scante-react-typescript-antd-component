@@ -1,15 +1,15 @@
 // eslint.config.js
 
-const js = require('@eslint/js');
-const reactPlugin = require('eslint-plugin-react');
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
-const typescriptParser = require('@typescript-eslint/parser');
-const prettierPlugin = require('eslint-plugin-prettier');
-const prettierConfig = require('eslint-config-prettier');
-const jestPlugin = require('eslint-plugin-jest');
-const globals = require('globals'); // Import the globals package
+import js from '@eslint/js';
+import reactPlugin from 'eslint-plugin-react';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
+import jestPlugin from 'eslint-plugin-jest';
+import globals from 'globals'; // Import the globals package
 
-module.exports = [
+export default [
   {
     ignores: ['dist', 'node_modules'],
   },
@@ -25,6 +25,9 @@ module.exports = [
           jsx: true,
         },
       },
+      globals:{
+        ...globals.browser
+      }
     },
     plugins: {
       '@typescript-eslint': typescriptPlugin,

@@ -1,0 +1,33 @@
+.float-label {
+  position: relative;
+}
+
+.label {
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 12px;
+  top: 5px;
+  transition: 0.2s ease all;
+}
+
+.as-placeholder {
+  color: gray;
+}
+
+.as-label {
+  top: -8px;
+  font-size: 12px !important;
+  background: white;
+  padding: 0 4px;
+  margin-left: -4px;
+}
+
+
+.ant-input-affix-wrapper,.ant-input-affix-wrapper:focus,.ant-input-password:hover{
+  z-index:unset !important;
+}
+
+.ant-input-password:focus-within{
+box-shadow:unset !important;
+}

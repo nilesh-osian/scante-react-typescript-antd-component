@@ -1,0 +1,23 @@
+
+.float-label .ant-select .ant-select-selector {
+  padding-top: 4px;
+  height: 42px !important;
+}
+
+.float-label .ant-select-single.ant-select-show-arrow .ant-select-selection-item {
+  padding-top: 4px;
+}
+
+.float-label .label.as-label {
+  top: -8px;
+  font-size: 12px !important;
+  background: white;
+  padding: 0 4px;
+  margin-left: -4px;
+  z-index: 1;
+}
+
+.float-label .label.as-placeholder {
+  top: 8px;
+  color: gray;
+}
