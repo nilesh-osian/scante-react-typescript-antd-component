@@ -39,11 +39,12 @@ const FloatInput = (props: FloatInputProps) => {
 					maxLength={maxLength}
 					type={type}
 					value={value}
+					placeholder={placeholder}
 				/>
 			)}
 
 			<label className={labelClass}>
-				{isOccupied ? label : placeholder} {requiredMark}
+				{label} {requiredMark}
 			</label>
 		</div>
 	);
