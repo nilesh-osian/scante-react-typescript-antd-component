@@ -23,6 +23,8 @@ const FloatInputPassword = (props: FloatInputPasswordProps) => {
 	const labelClass = isOccupied ? 'label as-label' : 'label as-placeholder';
 
 	const requiredMark = required ? <span className="text-danger">*</span> : null;
+	const randomSuffix = Math.random().toString(36).substring(2, 8);
+	const id = `float-input-password-${label.replace(/\s+/g, '-').toLowerCase()}-${randomSuffix}`;
 
 	return (
 		<div
@@ -35,11 +37,13 @@ const FloatInputPassword = (props: FloatInputPasswordProps) => {
 					onChange={props.onChange}
 					type={type}
 					defaultValue={value}
+					placeholder={placeholder}
+					id={id}
 				/>
 			)}
 
-			<label className={labelClass}>
-				{isOccupied ? label : placeholder} {requiredMark}
+			<label className={labelClass} htmlFor={id}>
+				{label} {requiredMark}
 			</label>
 		</div>
 	);
