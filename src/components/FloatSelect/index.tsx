@@ -28,6 +28,8 @@ const FloatSelect = (props: FloatSelectProps) => {
 	const requiredMark = required ? (
 		<span className="text-red-500">*</span>
 	) : null;
+	const randomSuffix = Math.random().toString(36).substring(2, 8);
+	const id = `float-select-${label.replace(/\s+/g, '-').toLowerCase()}-${randomSuffix}`;
 
 	return (
 		<div
@@ -36,16 +38,17 @@ const FloatSelect = (props: FloatSelectProps) => {
 			onFocus={() => setFocus(true)}
 		>
 			<Select
+				id={id}
 				className="w-full"
 				value={value}
 				onChange={onChange}
 				onFocus={() => setFocus(true)}
 				onBlur={() => setFocus(false)}
-				placeholder=""
+				placeholder={actualPlaceholder}
 				options={options}
 				{...restProps}
 			/>
-			<label className={labelClass}>
+			<label className={labelClass} htmlFor={id}>
 				{isOccupied ? label : actualPlaceholder} {requiredMark}
 			</label>
 		</div>
