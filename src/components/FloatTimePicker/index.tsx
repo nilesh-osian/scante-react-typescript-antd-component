@@ -35,6 +35,9 @@ const FloatTimepicker = (props: FloatTimepickerProps) => {
 		}
 	};
 
+	const randomSuffix = Math.random().toString(36).substring(2, 8);
+	const id = `float-timepicker-${label.replace(/\s+/g, '-').toLowerCase()}-${randomSuffix}`;
+
 	return (
 		<div
 			className="float-label"
@@ -43,13 +46,14 @@ const FloatTimepicker = (props: FloatTimepickerProps) => {
 		>
 			<TimePicker
 				onChange={handleTimeChange}
-				placeholder=""
 				format="HH:mm"
 				className="w-full"
 				value={timeValue}
+				id={id}
+				placeholder={!isOccupied ? '' : displayPlaceholder}
 			/>
-			<label className={labelClass}>
-				{isOccupied ? label : displayPlaceholder} {requiredMark}
+			<label className={labelClass} htmlFor={id}>
+				{label} {requiredMark}
 			</label>
 		</div>
 	);
