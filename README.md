@@ -12,11 +12,15 @@
 To install the package, use npm or yarn:
 
 ```
+npm install scante-react-typescript-antd-component
+```
 
 ## Components
 - **FloatInput**: A floating label input component.
 - **FloatSelect**: A floating label select component.
 - **ScanteGraph**: A customizable graph component.
+
+<!-- RELEASE_NOTES -->
 
 ## Changelog
 ### [1.1.1] (2024-11-13)
