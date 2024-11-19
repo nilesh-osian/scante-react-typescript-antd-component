@@ -3234,3 +3234,28 @@ Default.args = {
 		}
 	]
 };
+
+export const AdditionalData = Template.bind({});
+AdditionalData.args = {
+	xAxisType: 'date',
+	data: [
+		{
+			name: 'Series 1',
+			values: [
+				{ name: '2023-01-01', value: 10 },
+				{ name: '2023-01-02', value: 20 }
+			],
+			color: '#ff0000',
+			label: 'Series 1'
+		},
+		{
+			name: 'Series 2',
+			values: [
+				{ name: '2023-01-01', value: 15 },
+				{ name: '2023-01-02', value: 25 }
+			],
+			color: '#00ff00',
+			label: 'Series 2'
+		}
+	]
+};
