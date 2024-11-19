@@ -2,16 +2,27 @@
 // update-readme.js
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const version = process.argv[2];
-const releaseNotes = process.argv[3];
+// Get the release notes passed from the command line
+const releaseNotes = process.argv[2];
 
-const readmePath = path.resolve(process.cwd(), 'README.md');
+// Get the current directory name
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Read the current README.md content
+const readmePath = path.resolve(__dirname, 'README.md');
 let readmeContent = fs.readFileSync(readmePath, 'utf8');
 
-// Update the README.md content as per your requirements.
-// For example, append the release notes to the README.md.
-readmeContent += `\n## Release ${version}\n\n${releaseNotes}\n`;
+// Define a placeholder in your README.md where the release notes will be inserted
+const placeholder = '<!-- RELEASE_NOTES -->';
 
+// Replace the placeholder with the release notes
+readmeContent = readmeContent.replace(placeholder, releaseNotes);
+
+// Write the updated content back to README.md
 fs.writeFileSync(readmePath, readmeContent);
-console.log(`README.md updated with release ${version}`);
+
+console.log('README.md has been updated with the latest release notes.');
