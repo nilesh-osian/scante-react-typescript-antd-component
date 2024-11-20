@@ -7,7 +7,7 @@
     "@semantic-release/github",
     {
       "path": "@semantic-release/exec",
-      "prepareCmd": "node update-readme.js '${nextRelease.version}' '${nextRelease.notes}'"
+      "prepareCmd": "node update-readme.mjs '${nextRelease.version}' '${nextRelease.notes}'"
     },
     {
       "path": "@semantic-release/git",
