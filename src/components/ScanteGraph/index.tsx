@@ -33,7 +33,7 @@ const ScanteGraph: React.FC<ScanteGraphProps> = ({
 }) => {
 	const [graphData, setGraphData] = useState<
 		{
-			name: string;
+			name: string | number;
 			date?: Date;
 			[key: string]: number | string | Date | undefined;
 		}[]
@@ -49,7 +49,7 @@ const ScanteGraph: React.FC<ScanteGraphProps> = ({
 	}>({});
 	useEffect(() => {
 		let finalData: {
-			name: string;
+			name: string | number;
 			[key: string]: number | string | Date | undefined;
 		}[] = [];
 		let allData: {
@@ -120,6 +120,11 @@ const ScanteGraph: React.FC<ScanteGraphProps> = ({
 					const dateA = a.date instanceof Date ? a.date.getTime() : 0;
 					const dateB = b.date instanceof Date ? b.date.getTime() : 0;
 					return dateA - dateB;
+				}
+				case 'number': {
+					const numberA = a.name as number;
+					const numberB = b.name as number;
+					return numberA - numberB;
 				}
 				default:
 					return 0;
