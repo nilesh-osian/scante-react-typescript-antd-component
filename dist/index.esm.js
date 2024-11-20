@@ -34500,6 +34500,11 @@ var ScanteGraph = function (_a) {
                     var dateB = b.date instanceof Date ? b.date.getTime() : 0;
                     return dateA - dateB;
                 }
+                case 'number': {
+                    var numberA = a.name;
+                    var numberB = b.name;
+                    return numberA - numberB;
+                }
                 default:
                     return 0;
             }
