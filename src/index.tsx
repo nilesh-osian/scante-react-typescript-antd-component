@@ -1,6 +1,6 @@
-export { Button } from '@/components/Button';
-export { FloatInput } from '@/components/FloatInput';
-export { FloatInputPassword } from '@/components/FloatInputPassword';
-export { FloatSelect } from '@/components/FloatSelect';
-export { FloatTimePicker } from '@/components/FloatTimePicker';
-export { ScanteGraph } from 'scante-react-typescript-antd-component';
+export { default as Button } from '@/components/Button';
+export { default as FloatInput } from '@/components/FloatInput';
+export { default as FloatInputPassword } from '@/components/FloatInputPassword';
+export { default as FloatSelect } from '@/components/FloatSelect';
+export { default as FloatTimePicker } from '@/components/FloatTimePicker';
+export { default as ScanteGraph } from '@/components/ScanteGraph';
