@@ -20,7 +20,7 @@ npm install scante-react-typescript-antd-component
 - **FloatSelect**: A floating label select component.
 - **ScanteGraph**: A customizable graph component.
 
-<!-- RELEASE_NOTES -->
+1.3.0
 
 ## Changelog
 ### [1.1.1] (2024-11-13)
