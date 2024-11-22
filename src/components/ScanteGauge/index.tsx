@@ -1,12 +1,16 @@
+import '../../extra-lib/gauge-extra';
+import './index.css';
 import React, { useEffect, useRef } from 'react';
 
 export interface ScanteGaugeProps {
 	intake: number;
 	intakeGaugeLabels: number[];
-	intakeYellowThreshold: number;
-	intakeRedThreshold: number;
 	intakeGaugeMin: number;
 	intakeGaugeMax: number;
+	zoneStyles?: ZoneItem[]; // New prop to allow custom styling of zones
+	containerClass?: string;
+	canvasClass?: string;
+	valueClass?: string;
 }
 
 interface ZoneItem {
@@ -18,31 +22,34 @@ interface ZoneItem {
 const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 	intake,
 	intakeGaugeLabels,
-	intakeYellowThreshold,
-	intakeRedThreshold,
 	intakeGaugeMin,
-	intakeGaugeMax
+	intakeGaugeMax,
+	zoneStyles,
+	containerClass,
+	canvasClass,
+	valueClass
 }) => {
 	const gaugeRef = useRef<HTMLCanvasElement>(null);
 	const gaugeValueRef = useRef<HTMLDivElement>(null);
 	const gaugeInstanceRef = useRef<typeof Gauge>(null);
 
 	useEffect(() => {
-		const intakeGaugeArray = intakeGaugeLabels.map((label) => label / 100);
+		const intakeGaugeArray = intakeGaugeLabels.map((label) => label);
 
-		const zoneData: ZoneItem[] = [
+		// Use custom zone styles if provided, otherwise default to existing logic
+		const zoneData: ZoneItem[] = zoneStyles || [
 			{
-				value: intakeYellowThreshold,
+				value: intakeGaugeLabels[1],
 				activeColor: '#31af64',
 				color: '#45584c'
 			},
 			{
-				value: intakeRedThreshold - intakeYellowThreshold,
+				value: intakeGaugeLabels[5] - intakeGaugeLabels[1],
 				activeColor: '#fdf63a',
 				color: '#6b6a33'
 			},
 			{
-				value: intakeGaugeLabels[5] / 100,
+				value: intakeGaugeLabels[5],
 				activeColor: '#c11f31',
 				color: '#71343b'
 			}
@@ -59,8 +66,6 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 		const { zone, minValue, maxValue, spaceScaling, colorScaling } = options;
 
 		const value = Math.max(intake, minValue);
-
-		// const labels: number[] = [minValue, (maxValue + minValue) / 2, maxValue];
 
 		// Build colorData without mutating original data
 		let previousValue = minValue;
@@ -82,7 +87,6 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 
 		let min = minValue;
 		const staticZoneList = [];
-
 		while (min <= maxValue) {
 			const item = colorData.find(
 				(dataItem) => dataItem.cumulativeValue >= min + colorFill
@@ -126,25 +130,23 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 			staticZones: staticZoneList,
 			limitMax: maxValue,
 			limitMin: minValue,
-			background: '#FFFFFF',
+			background: '#000000',
 			generateGradient: true,
 			staticLabels: {
 				font: '14px sans-serif',
 				labels: intakeGaugeArray,
-				color: '#FFFFFF',
+				color: '#000000FF',
 				unit: '',
 				fractionDigits: 1
 			}
 		};
-
 		const target = gaugeRef.current;
 		if (!target) return;
 
 		if (!gaugeInstanceRef.current) {
-			gaugeInstanceRef.current = new Gauge(target).setOptions(opts);
-		} else {
-			gaugeInstanceRef.current.setOptions(opts);
+			gaugeInstanceRef.current = new Gauge(target);
 		}
+		gaugeInstanceRef.current.setOptions(opts);
 
 		gaugeInstanceRef.current.maxValue = maxValue;
 		gaugeInstanceRef.current.minValue = minValue;
@@ -158,16 +160,18 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 	}, [
 		intake,
 		intakeGaugeLabels,
-		intakeYellowThreshold,
-		intakeRedThreshold,
 		intakeGaugeMin,
-		intakeGaugeMax
+		intakeGaugeMax,
+		zoneStyles // Add zoneStyles to the dependency array
 	]);
 
 	return (
-		<div>
-			<canvas ref={gaugeRef}></canvas>
-			<div ref={gaugeValueRef}></div>
+		<div className={`scante-gauge-container ${containerClass}`}>
+			<canvas ref={gaugeRef} className={`scante-gauge ${canvasClass}`}></canvas>
+			<div
+				ref={gaugeValueRef}
+				className={`scante-gauge-value ${valueClass}`}
+			></div>
 		</div>
 	);
 };
