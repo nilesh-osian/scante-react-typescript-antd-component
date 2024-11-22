@@ -129,6 +129,10 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
+      # 7.1. Build Storybook
+      - name: Build Storybook
+        run: npm run build-storybook
+
       # 8. Commit and Push `dist` Folder
       - name: Commit and Push Dist Folder
         if: steps.semantic_release.outcome == 'success'
@@ -151,6 +155,20 @@ jobs:
             git push
           else
             echo "No changes in dist folder to commit."
+          fi
+
+          # Check if storybook has changes
+          if [ -n "$(git status --porcelain ./storybook-static)" ]; then
+            # Stage dist folder
+            git add storybook-static
+
+            # Commit changes with [skip ci] to prevent infinite loops
+            git commit -m "chore: update storybook [skip ci]"
+
+            # Push changes
+            git push
+          else
+            echo "No changes in storybook folder to commit."
           fi
 
       # 8. (Optional) Display Release Output
