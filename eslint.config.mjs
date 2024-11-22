@@ -26,8 +26,9 @@ export default [
         },
       },
       globals:{
-        ...globals.browser
-      }
+        ...globals.browser,
+        Gauge: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': typescriptPlugin,
