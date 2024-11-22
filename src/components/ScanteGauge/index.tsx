@@ -11,6 +11,7 @@ export interface ScanteGaugeProps {
 	containerClass?: string;
 	canvasClass?: string;
 	valueClass?: string;
+	style?: React.CSSProperties;
 }
 
 interface ZoneItem {
@@ -27,7 +28,8 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 	zoneStyles,
 	containerClass,
 	canvasClass,
-	valueClass
+	valueClass,
+	style
 }) => {
 	const gaugeRef = useRef<HTMLCanvasElement>(null);
 	const gaugeValueRef = useRef<HTMLDivElement>(null);
@@ -166,7 +168,7 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 	]);
 
 	return (
-		<div className={`scante-gauge-container ${containerClass}`}>
+		<div className={`scante-gauge-container ${containerClass}`} style={style}>
 			<canvas ref={gaugeRef} className={`scante-gauge ${canvasClass}`}></canvas>
 			<div
 				ref={gaugeValueRef}

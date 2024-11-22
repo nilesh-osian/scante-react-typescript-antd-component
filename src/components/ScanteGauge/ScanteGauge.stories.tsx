@@ -7,7 +7,9 @@ export default {
 	component: ScanteGauge
 } as Meta;
 
-const Template: StoryFn<ScanteGaugeProps> = (args) => <ScanteGauge {...args} />;
+const Template: StoryFn<ScanteGaugeProps> = (args) => (
+	<ScanteGauge style={{ height: '200px' }} {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
