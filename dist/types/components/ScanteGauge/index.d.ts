@@ -10,6 +10,7 @@ export interface ScanteGaugeProps {
     containerClass?: string;
     canvasClass?: string;
     valueClass?: string;
+    style?: React.CSSProperties;
 }
 interface ZoneItem {
     value: number;
