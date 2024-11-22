@@ -1,9 +1,10 @@
 .scante-gauge-container {
     position: relative;
+    display: inline-block;
 }
 .scante-gauge {
-    width: 100%;
-    height: auto !important;
+    width: auto;
+    height: 100%;
 }
 .scante-gauge-value {
     position: absolute;
