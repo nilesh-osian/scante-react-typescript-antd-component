@@ -17,12 +17,14 @@ npm install scante-react-typescript-antd-component
 
 ## Components
 - **FloatInput**: A floating label input component.
+- **FloatInputPassword**: A floating label password input component.
 - **FloatSelect**: A floating label select component.
+- **FloatTimePicker**: A floating label date picker component.
+- **ScanteGauge**: A customizable gauge component.
 - **ScanteGraph**: A customizable graph component.
 
-1.3.0
-
 ## Changelog
+
 ### [1.1.1] (2024-11-13)
 - **Bug Fixes**: Fixed minor bugs and improved performance.
 
