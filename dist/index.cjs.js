@@ -226,8 +226,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$2 = ".float-label {\n  position: relative;\n}\n\n.label {\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 12px;\n  top: 5px;\n  transition: 0.2s ease all;\n}\n\n.as-placeholder {\n  color: gray;\n}\n\n.as-label {\n  top: -8px;\n  font-size: 12px !important;\n  background: white;\n  padding: 0 4px;\n  margin-left: -4px;\n}\n\n\n";
-styleInject(css_248z$2);
+var css_248z$3 = ".float-label {\n  position: relative;\n}\n\n.label {\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 12px;\n  top: 5px;\n  transition: 0.2s ease all;\n}\n\n.as-placeholder {\n  color: gray;\n}\n\n.as-label {\n  top: -8px;\n  font-size: 12px !important;\n  background: white;\n  padding: 0 4px;\n  margin-left: -4px;\n}\n\n\n";
+styleInject(css_248z$3);
 
 var FloatInput = function (props) {
     var _a = React.useState(false), focus = _a[0], setFocus = _a[1];
@@ -246,8 +246,8 @@ var FloatInput = function (props) {
             requiredMark)));
 };
 
-var css_248z$1 = ".float-label {\n  position: relative;\n}\n\n.label {\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 12px;\n  top: 5px;\n  transition: 0.2s ease all;\n}\n\n.as-placeholder {\n  color: gray;\n}\n\n.as-label {\n  top: -8px;\n  font-size: 12px !important;\n  background: white;\n  padding: 0 4px;\n  margin-left: -4px;\n}\n\n\n.ant-input-affix-wrapper,.ant-input-affix-wrapper:focus,.ant-input-password:hover{\n  z-index:unset !important;\n}\n\n.ant-input-password:focus-within{\nbox-shadow:unset !important;\n}";
-styleInject(css_248z$1);
+var css_248z$2 = ".float-label {\n  position: relative;\n}\n\n.label {\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 12px;\n  top: 5px;\n  transition: 0.2s ease all;\n}\n\n.as-placeholder {\n  color: gray;\n}\n\n.as-label {\n  top: -8px;\n  font-size: 12px !important;\n  background: white;\n  padding: 0 4px;\n  margin-left: -4px;\n}\n\n\n.ant-input-affix-wrapper,.ant-input-affix-wrapper:focus,.ant-input-password:hover{\n  z-index:unset !important;\n}\n\n.ant-input-password:focus-within{\nbox-shadow:unset !important;\n}";
+styleInject(css_248z$2);
 
 var FloatInputPassword = function (props) {
     var _a = React.useState(false), focus = _a[0], setFocus = _a[1];
@@ -347,8 +347,8 @@ function requireDayjs_min () {
 var dayjs_minExports = requireDayjs_min();
 var dayjs = /*@__PURE__*/getDefaultExportFromCjs(dayjs_minExports);
 
-var css_248z = ":root {\n  --primary-color: #c50e2e;\n  --text-color-bg-primary: #ffffff;\n  --table-striped-rows-nth-child: rgb(235, 117, 138, 0.25);\n  --disabled-color: rgba(0, 0, 0, 0.25);\n  --disabled-backgroundColor: rgba(0, 0, 0, 0.04);\n  --border-color: #d9d9d9;\n  --success-color: #52c41a;\n  --secondary-color: #58585a;\n  --text-color-bg-secondary: rgb(253, 165, 180);\n  --warning-color: #ffe016;\n  --danger-color: #e94d1a;\n  --info-color: #1677ff;\n}\n\n.float-label {\n  position: relative;\n}\n\n.label {\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 12px;\n  top: 5px;\n  transition: 0.2s ease all;\n}\n\n.as-placeholder {\n  color: gray;\n}\n\n.as-label {\n  top: -8px;\n  font-size: 12px !important;\n  background: white;\n  padding: 0 4px;\n  margin-left: -4px;\n}\n\n\n.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner{\nbackground-color: var(--primary-color) !important;\ncolor: var(--text-color-bg-primary) !important;\n}\n.ant-btn-primary{\n  background:var(--primary-color) !important;\n  box-shadow: 0 1px 0 rgba(253, 165, 180, 0.75);\n}";
-styleInject(css_248z);
+var css_248z$1 = ":root {\n  --primary-color: #c50e2e;\n  --text-color-bg-primary: #ffffff;\n  --table-striped-rows-nth-child: rgb(235, 117, 138, 0.25);\n  --disabled-color: rgba(0, 0, 0, 0.25);\n  --disabled-backgroundColor: rgba(0, 0, 0, 0.04);\n  --border-color: #d9d9d9;\n  --success-color: #52c41a;\n  --secondary-color: #58585a;\n  --text-color-bg-secondary: rgb(253, 165, 180);\n  --warning-color: #ffe016;\n  --danger-color: #e94d1a;\n  --info-color: #1677ff;\n}\n\n.float-label {\n  position: relative;\n}\n\n.label {\n  font-weight: normal;\n  position: absolute;\n  pointer-events: none;\n  left: 12px;\n  top: 5px;\n  transition: 0.2s ease all;\n}\n\n.as-placeholder {\n  color: gray;\n}\n\n.as-label {\n  top: -8px;\n  font-size: 12px !important;\n  background: white;\n  padding: 0 4px;\n  margin-left: -4px;\n}\n\n\n.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner{\nbackground-color: var(--primary-color) !important;\ncolor: var(--text-color-bg-primary) !important;\n}\n.ant-btn-primary{\n  background:var(--primary-color) !important;\n  box-shadow: 0 1px 0 rgba(253, 165, 180, 0.75);\n}";
+styleInject(css_248z$1);
 
 var FloatTimepicker = function (props) {
     var _a = React.useState(false), focus = _a[0], setFocus = _a[1];
@@ -34745,10 +34745,133 @@ var ScanteGraph = function (_a) {
                     })))));
 };
 
+var css_248z = ".scante-gauge-container {\n    position: relative;\n    display: inline-block;\n}\n.scante-gauge {\n    width: auto;\n    height: 100%;\n}\n.scante-gauge-value {\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 15%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n";
+styleInject(css_248z);
+
+var ScanteGauge = function (_a) {
+    var intake = _a.intake, intakeGaugeLabels = _a.intakeGaugeLabels, intakeGaugeMin = _a.intakeGaugeMin, intakeGaugeMax = _a.intakeGaugeMax, zoneStyles = _a.zoneStyles, containerClass = _a.containerClass, canvasClass = _a.canvasClass, valueClass = _a.valueClass, style = _a.style;
+    var gaugeRef = React.useRef(null);
+    var gaugeValueRef = React.useRef(null);
+    var gaugeInstanceRef = React.useRef(null);
+    React.useEffect(function () {
+        var intakeGaugeArray = intakeGaugeLabels.map(function (label) { return label; });
+        // Use custom zone styles if provided, otherwise default to existing logic
+        var zoneData = zoneStyles || [
+            {
+                value: intakeGaugeLabels[1],
+                activeColor: '#31af64',
+                color: '#45584c'
+            },
+            {
+                value: intakeGaugeLabels[5] - intakeGaugeLabels[1],
+                activeColor: '#fdf63a',
+                color: '#6b6a33'
+            },
+            {
+                value: intakeGaugeLabels[5],
+                activeColor: '#c11f31',
+                color: '#71343b'
+            }
+        ];
+        var options = {
+            minValue: intakeGaugeMin,
+            maxValue: intakeGaugeMax,
+            spaceScaling: 0.01,
+            colorScaling: 0.05,
+            zone: zoneData
+        };
+        var zone = options.zone, minValue = options.minValue, maxValue = options.maxValue, spaceScaling = options.spaceScaling, colorScaling = options.colorScaling;
+        var value = Math.max(intake, minValue);
+        // Build colorData without mutating original data
+        var previousValue = minValue;
+        var colorData = zone.map(function (item) {
+            previousValue += item.value;
+            return __assign(__assign({}, item), { cumulativeValue: previousValue });
+        });
+        var gaping = spaceScaling * maxValue;
+        var colorFill = colorScaling * maxValue;
+        var zoneRange = colorFill + gaping;
+        var oddZoneValues = colorData
+            .filter(function (item) { return item.cumulativeValue % zoneRange !== 0; })
+            .map(function (item) { return item.cumulativeValue; });
+        var min = minValue;
+        var staticZoneList = [];
+        while (min <= maxValue) {
+            var item = colorData.find(function (dataItem) { return dataItem.cumulativeValue >= min + colorFill; });
+            if (item) {
+                if (oddZoneValues.length > 0 &&
+                    min + colorFill - oddZoneValues[0] > 0) {
+                    staticZoneList.push({
+                        strokeStyle: min < value ? item.activeColor : item.color,
+                        min: min,
+                        max: min + colorFill
+                    });
+                    min += colorFill + gaping;
+                    oddZoneValues.shift();
+                    continue;
+                }
+                staticZoneList.push({
+                    strokeStyle: min < value ? item.activeColor : item.color,
+                    min: min,
+                    max: min + colorFill
+                });
+            }
+            min += colorFill + gaping;
+        }
+        var opts = {
+            lines: 6,
+            angle: 0.01,
+            lineWidth: 0.2,
+            pointer: {
+                length: 0,
+                strokeWidth: 0,
+                color: '#000000'
+            },
+            staticZones: staticZoneList,
+            limitMax: maxValue,
+            limitMin: minValue,
+            background: '#000000',
+            generateGradient: true,
+            staticLabels: {
+                font: '14px sans-serif',
+                labels: intakeGaugeArray,
+                color: '#000000FF',
+                unit: '',
+                fractionDigits: 1
+            }
+        };
+        var target = gaugeRef.current;
+        if (!target)
+            return;
+        if (!gaugeInstanceRef.current) {
+            gaugeInstanceRef.current = new Gauge(target);
+        }
+        gaugeInstanceRef.current.setOptions(opts);
+        gaugeInstanceRef.current.maxValue = maxValue;
+        gaugeInstanceRef.current.minValue = minValue;
+        gaugeInstanceRef.current.animationSpeed = 32;
+        gaugeInstanceRef.current.set(value);
+        if (gaugeValueRef.current) {
+            gaugeValueRef.current.innerHTML =
+                intake % 1 === 0 ? intake.toString() : intake.toFixed(2);
+        }
+    }, [
+        intake,
+        intakeGaugeLabels,
+        intakeGaugeMin,
+        intakeGaugeMax,
+        zoneStyles // Add zoneStyles to the dependency array
+    ]);
+    return (React.createElement("div", { className: "scante-gauge-container ".concat(containerClass), style: style },
+        React.createElement("canvas", { ref: gaugeRef, className: "scante-gauge ".concat(canvasClass) }),
+        React.createElement("div", { ref: gaugeValueRef, className: "scante-gauge-value ".concat(valueClass) })));
+};
+
 exports.Button = Button;
 exports.FloatInput = FloatInput;
 exports.FloatInputPassword = FloatInputPassword;
 exports.FloatSelect = FloatSelect;
 exports.FloatTimePicker = FloatTimepicker;
+exports.ScanteGauge = ScanteGauge;
 exports.ScanteGraph = ScanteGraph;
 //# sourceMappingURL=index.cjs.js.map
