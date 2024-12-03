@@ -229,15 +229,15 @@ styleInject(css_248z$3);
 
 var FloatInput = function (props) {
     var _a = useState(false), focus = _a[0], setFocus = _a[1];
-    var label = props.label, value = props.value, placeholder = props.placeholder, type = props.type, required = props.required, maxLength = props.maxLength;
+    var label = props.label, value = props.value, placeholder = props.placeholder, type = props.type, required = props.required, maxLength = props.maxLength, disabled = props.disabled;
     if (!placeholder)
         placeholder = label;
     var isOccupied = focus || (value !== undefined && value !== null && value !== '');
     var labelClass = isOccupied ? 'label as-label' : 'label as-placeholder';
     var requiredMark = required ? React.createElement("span", { className: "text-danger" }, "*") : null;
     return (React.createElement("div", { className: "float-label", onBlur: function () { return setFocus(false); }, onFocus: function () { return setFocus(true); } },
-        (type == 'text' || type == 'email') && (React.createElement(Input, { onChange: props.onChange, type: type, value: value })),
-        type == 'number' && (React.createElement(Input, { onChange: props.onChange, maxLength: maxLength, type: type, value: value, placeholder: placeholder })),
+        (type == 'text' || type == 'email') && (React.createElement(Input, { onChange: props.onChange, type: type, value: value, disabled: disabled })),
+        type == 'number' && (React.createElement(Input, { onChange: props.onChange, maxLength: maxLength, type: type, value: value, placeholder: placeholder, disabled: disabled })),
         React.createElement("label", { className: labelClass },
             label,
             " ",
@@ -312,7 +312,7 @@ typeof SuppressedError === "function" ? SuppressedError : function (error, suppr
 
 var FloatSelect = function (props) {
     var _a = useState(false), focus = _a[0], setFocus = _a[1];
-    var label = props.label, value = props.value, placeholder = props.placeholder, required = props.required, options = props.options, onChange = props.onChange, restProps = __rest(props, ["label", "value", "placeholder", "required", "options", "onChange"]);
+    var label = props.label, value = props.value, placeholder = props.placeholder, required = props.required, options = props.options, onChange = props.onChange, disabled = props.disabled, restProps = __rest(props, ["label", "value", "placeholder", "required", "options", "onChange", "disabled"]);
     var actualPlaceholder = placeholder || label;
     var isOccupied = focus || (value && value.toString().length !== 0);
     var labelClass = isOccupied ? 'label as-label' : 'label as-placeholder';
@@ -320,7 +320,7 @@ var FloatSelect = function (props) {
     var randomSuffix = Math.random().toString(36).substring(2, 8);
     var id = "float-select-".concat(label.replace(/\s+/g, '-').toLowerCase(), "-").concat(randomSuffix);
     return (React.createElement("div", { className: "relative float-label", onBlur: function () { return setFocus(false); }, onFocus: function () { return setFocus(true); } },
-        React.createElement(Select, __assign({ id: id, className: "w-full", value: value, onChange: onChange, onFocus: function () { return setFocus(true); }, onBlur: function () { return setFocus(false); }, placeholder: actualPlaceholder, options: options }, restProps)),
+        React.createElement(Select, __assign({ id: id, className: "w-full", value: value, onChange: onChange, onFocus: function () { return setFocus(true); }, onBlur: function () { return setFocus(false); }, placeholder: actualPlaceholder, options: options, disabled: disabled }, restProps)),
         React.createElement("label", { className: labelClass, htmlFor: id },
             isOccupied ? label : actualPlaceholder,
             " ",

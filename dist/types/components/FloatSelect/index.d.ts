@@ -9,6 +9,7 @@ export interface FloatSelectProps {
         value: string;
     }[];
     onChange: (value: string) => void;
+    disabled?: boolean;
 }
 declare const FloatSelect: (props: FloatSelectProps) => React.JSX.Element;
 export default FloatSelect;
