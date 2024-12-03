@@ -9,11 +9,13 @@ export interface FloatInputProps {
 	type: 'text' | 'email' | 'number';
 	required: boolean;
 	maxLength: number;
+	disabled?: boolean;
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const FloatInput = (props: FloatInputProps) => {
 	const [focus, setFocus] = useState(false);
-	let { label, value, placeholder, type, required, maxLength } = props;
+	let { label, value, placeholder, type, required, maxLength, disabled } =
+		props;
 
 	if (!placeholder) placeholder = label;
 
@@ -31,7 +33,12 @@ const FloatInput = (props: FloatInputProps) => {
 			onFocus={() => setFocus(true)}
 		>
 			{(type == 'text' || type == 'email') && (
-				<Input onChange={props.onChange} type={type} value={value} />
+				<Input
+					onChange={props.onChange}
+					type={type}
+					value={value}
+					disabled={disabled}
+				/>
 			)}
 			{type == 'number' && (
 				<Input
@@ -40,6 +47,7 @@ const FloatInput = (props: FloatInputProps) => {
 					type={type}
 					value={value}
 					placeholder={placeholder}
+					disabled={disabled}
 				/>
 			)}
 

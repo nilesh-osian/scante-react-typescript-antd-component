@@ -8,6 +8,7 @@ export interface FloatSelectProps {
 	required: boolean;
 	options: { label: string; value: string }[];
 	onChange: (value: string) => void;
+	disabled?: boolean;
 }
 
 const FloatSelect = (props: FloatSelectProps) => {
@@ -19,6 +20,7 @@ const FloatSelect = (props: FloatSelectProps) => {
 		required,
 		options,
 		onChange,
+		disabled,
 		...restProps
 	} = props;
 
@@ -46,6 +48,7 @@ const FloatSelect = (props: FloatSelectProps) => {
 				onBlur={() => setFocus(false)}
 				placeholder={actualPlaceholder}
 				options={options}
+				disabled={disabled}
 				{...restProps}
 			/>
 			<label className={labelClass} htmlFor={id}>
