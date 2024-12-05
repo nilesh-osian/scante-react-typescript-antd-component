@@ -30,6 +30,7 @@ requireGauge();
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Override Functions of Gauge.js library to show the label along with its unit
 // Original Library Link
+window.Gauge = Gauge;
 Gauge.prototype.render = function () {
     var displayedAngle, fillStyle, gauge, h, j, l, len, len1, max, min, radius, ref, ref1, scaleMutate, tmpRadius, w, zone;
     w = this.canvas.width / 2;
