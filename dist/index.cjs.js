@@ -231,15 +231,21 @@ styleInject(css_248z$3);
 
 var FloatInput = function (props) {
     var _a = React.useState(false), focus = _a[0], setFocus = _a[1];
-    var label = props.label, value = props.value, placeholder = props.placeholder, type = props.type, required = props.required, maxLength = props.maxLength, disabled = props.disabled;
-    if (!placeholder)
-        placeholder = label;
+    var _b = props.label, label = _b === void 0 ? '' : _b, value = props.value; props.placeholder; var _c = props.type, type = _c === void 0 ? 'text' : _c, required = props.required, maxLength = props.maxLength, disabled = props.disabled;
     var isOccupied = focus || (value !== undefined && value !== null && value !== '');
     var labelClass = isOccupied ? 'label as-label' : 'label as-placeholder';
     var requiredMark = required ? React.createElement("span", { className: "text-danger" }, "*") : null;
-    return (React.createElement("div", { className: "float-label", onBlur: function () { return setFocus(false); }, onFocus: function () { return setFocus(true); } },
+    return (React.createElement("div", { className: "float-label ".concat(props.className), style: props.style, onBlur: function () {
+            var _a;
+            setFocus(false);
+            (_a = props.onBlur) === null || _a === void 0 ? void 0 : _a.call(props);
+        }, onFocus: function () {
+            var _a;
+            setFocus(true);
+            (_a = props.onFocus) === null || _a === void 0 ? void 0 : _a.call(props);
+        } },
         (type == 'text' || type == 'email') && (React.createElement(antd.Input, { onChange: props.onChange, type: type, value: value, disabled: disabled })),
-        type == 'number' && (React.createElement(antd.Input, { onChange: props.onChange, maxLength: maxLength, type: type, value: value, placeholder: placeholder, disabled: disabled })),
+        type == 'number' && (React.createElement(antd.Input, { onChange: props.onChange, maxLength: maxLength, type: type, value: value, disabled: disabled })),
         React.createElement("label", { className: labelClass },
             label,
             " ",
