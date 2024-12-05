@@ -78,7 +78,6 @@ const ScanteSelect = <T,>({
 						setShowSuggestions(false);
 					}, 500);
 				}}
-				className="scante-select-input"
 				style={{
 					borderColor: token.colorBorder,
 					borderRadius: token.borderRadius,

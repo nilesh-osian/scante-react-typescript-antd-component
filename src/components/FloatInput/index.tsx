@@ -3,7 +3,7 @@ import { Input } from 'antd';
 
 import './index.css';
 export interface FloatInputProps {
-	label: string;
+	label?: string;
 	value: string | number;
 	placeholder?: string;
 	type?: 'text' | 'email' | 'number';
@@ -19,7 +19,7 @@ export interface FloatInputProps {
 const FloatInput = (props: FloatInputProps) => {
 	const [focus, setFocus] = useState(false);
 	let {
-		label,
+		label = '',
 		value,
 		placeholder,
 		type = 'text',
@@ -64,7 +64,6 @@ const FloatInput = (props: FloatInputProps) => {
 					maxLength={maxLength}
 					type={type}
 					value={value}
-					placeholder={placeholder}
 					disabled={disabled}
 				/>
 			)}

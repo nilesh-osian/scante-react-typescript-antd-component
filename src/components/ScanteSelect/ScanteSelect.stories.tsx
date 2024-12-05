@@ -24,5 +24,6 @@ Default.args = {
 			guid: `guid_${index}`
 		})),
 	optionLabel: 'name',
+	label: 'Select Fruit',
 	onChange: (value) => console.log('Selected:', value)
 };
