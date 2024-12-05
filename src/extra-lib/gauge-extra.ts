@@ -3,6 +3,7 @@
 // Override Functions of Gauge.js library to show the label along with its unit
 // Original Library Link
 import './gauge.js';
+window.Gauge = Gauge;
 Gauge.prototype.render = function () {
 	let displayedAngle: number,
 		fillStyle: CanvasGradient,
