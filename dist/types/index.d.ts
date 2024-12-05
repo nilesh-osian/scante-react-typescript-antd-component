@@ -6,3 +6,4 @@ export { default as FloatSelect } from './components/FloatSelect';
 export { default as FloatTimePicker } from './components/FloatTimePicker';
 export { default as ScanteGraph } from './components/ScanteGraph';
 export { default as ScanteGauge } from './components/ScanteGauge';
+export { default as ScanteSelect } from './components/ScanteSelect';
