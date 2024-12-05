@@ -22,6 +22,7 @@ npm install scante-react-typescript-antd-component
 - **FloatTimePicker**: A floating label date picker component.
 - **ScanteGauge**: A customizable gauge component.
 - **ScanteGraph**: A customizable graph component.
+- **ScanteSelect**: A customizable select component.
 
 ## Changelog
 

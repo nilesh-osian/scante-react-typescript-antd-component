@@ -5,17 +5,28 @@ import './index.css';
 export interface FloatInputProps {
 	label: string;
 	value: string | number;
-	placeholder: string;
-	type: 'text' | 'email' | 'number';
-	required: boolean;
-	maxLength: number;
+	placeholder?: string;
+	type?: 'text' | 'email' | 'number';
+	required?: boolean;
+	maxLength?: number;
 	disabled?: boolean;
+	onFocus?: () => void;
+	onBlur?: () => void;
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	className?: string;
+	style?: React.CSSProperties;
 }
 const FloatInput = (props: FloatInputProps) => {
 	const [focus, setFocus] = useState(false);
-	let { label, value, placeholder, type, required, maxLength, disabled } =
-		props;
+	let {
+		label,
+		value,
+		placeholder,
+		type = 'text',
+		required,
+		maxLength,
+		disabled
+	} = props;
 
 	if (!placeholder) placeholder = label;
 
@@ -28,9 +39,16 @@ const FloatInput = (props: FloatInputProps) => {
 
 	return (
 		<div
-			className="float-label"
-			onBlur={() => setFocus(false)}
-			onFocus={() => setFocus(true)}
+			className={`float-label ${props.className}`}
+			style={props.style}
+			onBlur={() => {
+				setFocus(false);
+				props.onBlur?.();
+			}}
+			onFocus={() => {
+				setFocus(true);
+				props.onFocus?.();
+			}}
 		>
 			{(type == 'text' || type == 'email') && (
 				<Input
