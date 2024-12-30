@@ -2,6 +2,7 @@
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
+    position: relative;
 }
 
 .scante-select-input {
@@ -35,3 +36,9 @@
 .scante-select-option:hover {
     background-color: #e3d6d6;
 } 
+.scante-select-dropdown-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}

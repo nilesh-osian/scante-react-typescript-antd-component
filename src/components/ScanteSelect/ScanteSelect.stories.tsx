@@ -7,7 +7,9 @@ export default {
 } as Meta;
 
 const Template: StoryFn<typeof ScanteSelect> = (args) => (
-	<ScanteSelect {...args} />
+	<div style={{ backgroundColor: 'red' }}>
+		<ScanteSelect {...args} />
+	</div>
 );
 
 export const Default = Template.bind({});

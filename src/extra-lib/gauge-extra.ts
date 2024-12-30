@@ -1,9 +1,8 @@
-/* eslint-disable no-unreachable */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Override Functions of Gauge.js library to show the label along with its unit
 // Original Library Link
-import './gauge.js';
-window.Gauge = Gauge;
+import Gauge2 from './gauge.js';
+window.Gauge = Gauge2;
 Gauge.prototype.render = function () {
 	let displayedAngle: number,
 		fillStyle: CanvasGradient,
@@ -206,8 +205,8 @@ const formatNumber = function (...num: any[]) {
 	try {
 		return addCommas(value.toFixed(digits));
 	} catch (error) {
-		return addCommas(value.toString());
 		console.error(error);
+		return addCommas(value.toString());
 	}
 };
 

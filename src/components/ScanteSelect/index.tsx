@@ -85,20 +85,22 @@ const ScanteSelect = <T,>({
 				}}
 			/>
 			{showSuggestions && (
-				<List
-					height={200}
-					itemCount={filteredOptions.length}
-					itemSize={50}
-					width={'100%'}
-					className="scante-select-dropdown"
-					style={{
-						borderColor: token.colorBorder,
-						borderRadius: token.borderRadius,
-						boxShadow: token.boxShadow
-					}}
-				>
-					{Row}
-				</List>
+				<div className="scante-select-dropdown-container">
+					<List
+						height={200}
+						itemCount={filteredOptions.length}
+						itemSize={50}
+						width={'100%'}
+						className="scante-select-dropdown"
+						style={{
+							borderColor: token.colorBorder,
+							borderRadius: token.borderRadius,
+							boxShadow: token.boxShadow
+						}}
+					>
+						{Row}
+					</List>
+				</div>
 			)}
 		</div>
 	);
