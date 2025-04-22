@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Override Functions of Gauge.js library to show the label along with its unit
 // Original Library Link
+// @ts-ignore
 import { Gauge } from 'gaugeJS';
 
 Gauge.render = function () {

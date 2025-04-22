@@ -1,4 +1,4 @@
-declare module 'gaugeJS' {
+declare module 'gaugeJS2' {
 	interface Gauge {
 		render(): void;
 		renderStaticLabels(
