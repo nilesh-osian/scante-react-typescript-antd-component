@@ -69,7 +69,7 @@ jobs:
 
       # 6. Upload build artifacts for subsequent jobs
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: ./dist  # Path to the build output directory
