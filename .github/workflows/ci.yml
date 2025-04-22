@@ -1,5 +1,3 @@
-# .github/workflows/ci.yml
-
 name: CI for Pull Requests to Develop
 
 on:
@@ -9,7 +7,7 @@ on:
 
 jobs:
   build-and-lint:
-    name: Lint and Build
+    name: Lint, Build & Upload Artifacts
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x'  # Specify the Node.js version you need
+          node-version: '20.x'
 
       # 3. Cache Node.js dependencies
       - name: Cache Node.js Modules
@@ -45,3 +43,12 @@ jobs:
       # 6. Run Build
       - name: Run Build
         run: npm run build
+
+      # 7. Upload Build Artifacts
+      - name: Upload Build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: |
+            dist/
+            coverage/
