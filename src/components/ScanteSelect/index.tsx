@@ -80,7 +80,7 @@ const ScanteSelect = <T,>({
 			/>
 			{showSuggestions && (
 				<div className="scante-select-dropdown-container">
-					{/* @ts-ignore */}
+					{/* @ts-expect-error */}
 					<List
 						height={200}
 						itemCount={filteredOptions.length}
