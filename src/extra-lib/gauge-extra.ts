@@ -2,6 +2,7 @@
 // Override Functions of Gauge.js library to show the label along with its unit
 // Original Library Link
 import { Gauge } from 'gaugeJS';
+
 Gauge.render = function () {
 	let displayedAngle: number,
 		fillStyle: CanvasGradient,

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { theme } from 'antd';
-import { FixedSizeList as List } from 'react-window';
+import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
 import './ScanteSelect.css'; // Import the CSS file
 import FloatInput from '../FloatInput';
 
@@ -36,13 +36,7 @@ const ScanteSelect = <T,>({
 			});
 	}, [options, searchTerm, optionLabel]);
 
-	const Row = ({
-		index,
-		style
-	}: {
-		index: number;
-		style: React.CSSProperties;
-	}) => (
+	const Row = ({ index, style }: ListChildComponentProps) => (
 		<div
 			style={{
 				...style,
@@ -86,6 +80,7 @@ const ScanteSelect = <T,>({
 			/>
 			{showSuggestions && (
 				<div className="scante-select-dropdown-container">
+					{/* @ts-ignore */}
 					<List
 						height={200}
 						itemCount={filteredOptions.length}
