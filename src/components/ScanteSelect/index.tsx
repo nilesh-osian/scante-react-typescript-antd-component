@@ -80,7 +80,7 @@ const ScanteSelect = <T,>({
 			/>
 			{showSuggestions && (
 				<div className="scante-select-dropdown-container">
-					{/* @ts-expect-error */}
+					{/* @ts-expect-error - List component from react-window has type issues with the style prop */}
 					<List
 						height={200}
 						itemCount={filteredOptions.length}
