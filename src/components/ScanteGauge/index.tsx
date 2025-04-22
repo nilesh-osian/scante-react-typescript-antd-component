@@ -146,7 +146,6 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 		if (!target) return;
 
 		if (!gaugeInstanceRef.current) {
-			debugger;
 			gaugeInstanceRef.current = new Gauge(target);
 		}
 		gaugeInstanceRef.current.setOptions(opts);
