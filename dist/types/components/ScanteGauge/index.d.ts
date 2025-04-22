@@ -1,4 +1,3 @@
-import '../../extra-lib/gauge-extra';
 import './index.css';
 import React from 'react';
 export interface ScanteGaugeProps {
