@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Override Functions of Gauge.js library to show the label along with its unit
 // Original Library Link
-import './gauge.js';
-window.Gauge = Gauge;
-
-Gauge.prototype.render = function () {
+import {Gauge} from 'gaugeJS';
+Gauge.render = function () {
 	let displayedAngle: number,
 		fillStyle: CanvasGradient,
 		gauge: any,
@@ -127,7 +125,7 @@ Gauge.prototype.render = function () {
 	return this.ctx.translate(-w, -h);
 };
 
-Gauge.prototype.renderStaticLabels = function (
+Gauge.renderStaticLabels = function (
 	staticLabels: any,
 	w: number,
 	h: number,
@@ -226,3 +224,5 @@ const addCommas = function (nStr: string) {
 	}
 	return x1 + x2;
 };
+
+export default Gauge;
