@@ -1,6 +1,5 @@
 // rollup.config.mjs
-
-import path,{resolve as resolvePath} from 'path';
+import path, { resolve as resolvePath } from 'path';
 import alias from '@rollup/plugin-alias';
 import typescript from 'rollup-plugin-typescript2';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -9,49 +8,77 @@ import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
+import replace from '@rollup/plugin-replace';
+import terser from '@rollup/plugin-terser'
 import { readFileSync } from 'fs';
-const pkg = JSON.parse(readFileSync(resolvePath('./package.json'), 'utf-8'));
-
 import { fileURLToPath } from 'url';
 
-
+const pkg = JSON.parse(readFileSync(resolvePath('./package.json'), 'utf-8'));
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname  = path.dirname(__filename);
+
 export default {
-	input: 'src/index.tsx',
-	output: [
-		{
-			file: pkg.main,
-			format: 'cjs', // CommonJS format
-			sourcemap: true
-		},
-		{
-			file: pkg.module,
-			format: 'esm', // ES Module format
-			sourcemap: true
-		}
-	],
-	plugins: [
-		alias({
-			entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
-		}),
-		peerDepsExternal(),
-		resolve(),
-		commonjs(),
-		json(),
-		typescript({
-			useTsconfigDeclarationDir: true,
-			exclude: [
-				'**/*.stories.tsx',
-				'**/*.stories.ts',
-				'**/*.test.tsx',
-				'**/*.test.ts'
-			]
-		}),
-		postcss(),
-		copy({
-			targets: [{ src: 'src/extra-lib/gauge.js', dest: 'dist/extra-lib' }]
-		})
-	],
-	external: ['react', 'react-dom', 'antd'] // Exclude peer dependencies
+  input: 'src/index.tsx',
+  external: ['react', 'react-dom', 'antd'],
+  output: [
+    // CommonJS build
+    {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true
+    },
+    // ES module build
+    {
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true
+    },
+    // UMD build (for AMD / <script> use)
+    {
+      file: pkg.browser || 'dist/index.umd.js',
+      format: 'umd',
+      name: 'ScanteReactTsAntdComponent',
+      globals: {
+        react:     'React',
+        'react-dom':'ReactDOM',
+        antd:      'antd'
+      },
+      sourcemap: true
+    }
+  ],
+  plugins: [
+    // Only replace NODE_ENV, do NOT touch `define`
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      preventAssignment: true
+    }),
+
+    alias({
+      entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }]
+    }),
+
+    peerDepsExternal(),
+
+    resolve(),
+    commonjs(),
+
+    json(),
+
+    typescript({
+      useTsconfigDeclarationDir: true,
+      exclude: [
+        '**/*.stories.tsx',
+        '**/*.stories.ts',
+        '**/*.test.tsx',
+        '**/*.test.ts'
+      ]
+    }),
+
+    postcss(),
+
+    copy({}),
+
+    // Minify (still won’t touch AMD `define`)
+    terser()
+  ]
 };
