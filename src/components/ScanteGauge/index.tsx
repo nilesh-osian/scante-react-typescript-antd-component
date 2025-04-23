@@ -64,7 +64,7 @@ const ScanteGauge: React.FC<ScanteGaugeProps> = ({
 			colorScaling: 0.05,
 			zone: zoneData
 		};
-
+		console.log('scante gauge options', options);
 		const { zone, minValue, maxValue, spaceScaling, colorScaling } = options;
 
 		const value = Math.max(intake, minValue);
